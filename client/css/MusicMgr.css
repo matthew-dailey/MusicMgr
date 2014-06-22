@@ -3,3 +3,12 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+#main {
+  padding: 10px 30px 30px 30px;
+}
+
+#welcome-jumbotron {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
