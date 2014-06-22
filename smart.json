@@ -1,6 +1,8 @@
 {
   "packages": {
     "iron-router": {},
-    "jquery-datatables": {}
+    "jquery-datatables": {},
+    "accounts-ui-bootstrap-3": {},
+    "bootstrap-3": {}
   }
 }
