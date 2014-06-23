@@ -1,19 +1,5 @@
-/*if (Meteor.isClient) {
-  Template.hello.greeting = function () {
-    return "Welcome to MusicMgr.";
-  };
-
-  Template.hello.events({
-    'click input': function () {
-      // template data, if any, is available in 'this'
-      if (typeof console !== 'undefined')
-        console.log("You pressed the button");
-    }
-  });
+Template.dashboard.user = function() {
+    var user = Meteor.user();
+    if (user && user.emails)
+        return user.emails[0].address;
 }
-
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
-}*/
