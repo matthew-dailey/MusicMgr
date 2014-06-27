@@ -5,7 +5,8 @@
       "iron-router": {},
       "jquery-datatables": {},
       "accounts-ui-bootstrap-3": {},
-      "bootstrap-3": {}
+      "bootstrap-3": {},
+      "jquery-validate": {}
     },
     "packages": {
       "iron-router": {
@@ -27,6 +28,11 @@
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
         "tag": "v3.1.1-1",
         "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
+      },
+      "jquery-validate": {
+        "git": "https://github.com/TimHeckel/meteor-jquery-validate.git",
+        "tag": "v0.1.0",
+        "commit": "f342b2b2330baf58cc9249bba5e5cb2e376294c1"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
