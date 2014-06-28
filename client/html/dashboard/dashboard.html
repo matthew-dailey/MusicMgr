@@ -1,3 +1,13 @@
 <template name="dashboard">
     <p>Welcome, {{ user }}!</p>
+    <p>Here are your events:</p>
+    <div class="events">
+        {{#if hasevents}}
+            {{#each events}}
+                {{> event}}
+            {{/each}}
+        {{else}}
+            No events!
+        {{/if}}
+    </div>
 </template>
