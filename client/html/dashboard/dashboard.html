@@ -10,8 +10,18 @@
             No events!
         {{/if}}
     </div>
+    {{> addEventForm}}
+
 </template>
 
+<!-- AutoForm (specifically, QuickForm) that lets us make an event -->
+<template name="addEventForm">
+    {{> quickForm collection="Events"
+        id="addEventForm" type="method"
+        meteormethod="createEventAutoForm"}}
+</template>
+
+<!-- prints out user's events -->
 <template name="event">
     <div class="event">
         <span class="name">{{name}}</span>

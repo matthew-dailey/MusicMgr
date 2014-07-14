@@ -8,13 +8,10 @@ Meteor.subscribe("events");
 // Null if no user/email found
 var getEvents = function(user) {
     var userEvents = null;
-    console.log("getEvents");
     if (user && user.emails) {
         var email = user.emails[0].address;
         //var userEvents = Events.find({user: email}, {sort: {name: 1}});
-        console.log("getEvents: valid user '" + email + "'");
         userEvents = Events.find({});
-        console.log("getEvents: events: '" + userEvents.fetch()[0].name + "'");
     }
     return userEvents;
 }
@@ -38,6 +35,22 @@ Template.dashboard.userevents = function() {
     var user = Meteor.user();
     return getEvents(user);
 };
+
+/**
+ * Any hooks for any Autoforms are defined here
+ */
+AutoForm.hooks({
+    // any hooks for the addEventForm
+    addEventForm: {
+        onSubmit: function(insertDoc, updateDoc, currentDoc) {
+            // nothing special; leave as example
+        },
+        onError: function(operation, error, template) {
+            console.log("Error in autoform");
+            console.log(error);
+        }
+    }
+});
 
 // return name of an event
 Template.event.name = function() {
