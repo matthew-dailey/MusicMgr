@@ -3,11 +3,17 @@
     <p>Here are your events:</p>
     <div class="events">
         {{#if hasevents}}
-            {{#each events}}
+            {{#each userevents}}
                 {{> event}}
             {{/each}}
         {{else}}
             No events!
         {{/if}}
+    </div>
+</template>
+
+<template name="event">
+    <div class="event">
+        <span class="name">{{name}}</span>
     </div>
 </template>
