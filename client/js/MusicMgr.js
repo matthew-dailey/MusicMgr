@@ -53,6 +53,29 @@ AutoForm.hooks({
 });
 
 // return name of an event
+// 'this' is the Event being handled
 Template.event.name = function() {
     return this.name;
 };
+
+// returns all of the playlist items for one playlist
+Template.event.playlistitems = function() {
+    // pull back the event with this ID, only the playlist
+    var ret = Events.findOne({_id: this._id}, {fields: {playlist: 1}});
+
+    // if a playlist exists, return the songs from it
+    if (ret.playlist && ret.playlist.songs) {
+        return ret.playlist.songs;
+    } else {
+        return new Array();
+    }
+};
+
+// get artist from playlist item (see Schemas.PlaylistItem)
+Template.playlistitem.artist = function() {
+    return this.artist;
+}
+// get song title from playlist item (see Schemas.PlaylistItem)
+Template.playlistitem.title = function() {
+    return this.title;
+}

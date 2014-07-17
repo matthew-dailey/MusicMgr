@@ -1,6 +1,6 @@
 <template name="dashboard">
     <p>Welcome, {{ user }}!</p>
-    <p>Here are your events:</p>
+    <p>Here are your events and their playlists:</p>
     <div class="events">
         {{#if hasevents}}
             {{#each userevents}}
@@ -25,5 +25,17 @@
 <template name="event">
     <div class="event">
         <span class="name">{{name}}</span>
+        <span class="playlist">Playlist</span>
+        <div class="playlist">
+            {{#each playlistitems}}
+                {{> playlistitem}}
+            {{/each}}
+        </div>
+    </div>
+</template>
+
+<template name="playlistitem">
+    <div class="playlistitem">
+       - <span class="songtitle">{{title}}</span> by <span class="songartist">{{artist}}</span>
     </div>
 </template>

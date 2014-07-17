@@ -34,12 +34,27 @@ var validatedCreateEvent = function(doc) {
     });
 };
 
+// remove an event by document, but really needs an ID
+var validatedRemoveEvent = function(doc) {
+    check(doc, Schemas.Events);
+
+    // pick out only the part we need for uniqueness
+    var keyedDoc = _.pick(doc, 'name');
+    // TODO: pick out ID and use that to delete
+    Events.remove(keyedDoc, function(error, result) {
+        if (error) {
+            console.log("Error during validated remove.");
+            console.log(error);
+            throw new Meteor.Error(500, "Problem removing from MongoDB.");
+        }
+    });
+};
+
 // set up methods exposed to client
 Meteor.methods({
     createEvent: function(name) {
         validatedCreateEvent({name: name});
     },
-    createEventAutoForm: function(doc) {
-        validatedCreateEvent(doc);
-    }
+    createEventAutoForm: validatedCreateEvent
+    //removeMethod: validatedRemoveEvent
 });
